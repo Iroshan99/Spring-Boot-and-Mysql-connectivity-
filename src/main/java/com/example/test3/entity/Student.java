@@ -1,7 +1,9 @@
 package com.example.test3.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -34,5 +36,42 @@ public class Student {
 
     @Column
     private int age;
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    @Column
+    private String imageName;
+
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
+    }
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    @Column
+    private String imageType;
+
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
+    }
+
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] imageData;
+
 
 }
